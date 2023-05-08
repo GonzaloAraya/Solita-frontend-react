@@ -1,9 +1,18 @@
 import { DataGrid } from '@mui/x-data-grid';
 import React, { useEffect, useState } from 'react'
-import { bikeJourneyData } from '../../controllers/bikeJourneyData';
-import TablePagination from '@mui/material/TablePagination';
-import { AlignHorizontalCenter } from '@mui/icons-material';
+import { bikeJourneyData } from '../../controllers/Data';
 
+
+/** 
+ * 
+ * DataGrid Table where data, pagination and display information is made.
+ * Note: Page size limited by VM cloud service, Must be updated to work properly
+ * 
+ * @returns DataGrid table
+ * 
+*/
+
+//columns defined in the imported data
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
   { field: 'departure', headerName: 'Departure', width: 200 },
@@ -16,6 +25,8 @@ const columns = [
   { field: 'duration', headerName: 'Duration', width: 130 },
 ];
 
+
+//Datagrid from material UI
 export default function CustomTable() {
 
   const [rows, setRows] = useState([])
@@ -24,10 +35,12 @@ export default function CustomTable() {
     page: 0,
   });
 
+  //updating data only on the first render and any time paginationModel value changes
   useEffect(() => {
     readData();
   }, [paginationModel])
 
+  //fetching data from controller, update all data information
   async function readData() {
     await bikeJourneyData(paginationModel.page, 10000)
     .catch(console.error)
