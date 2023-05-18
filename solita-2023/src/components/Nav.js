@@ -15,6 +15,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 
 //links to pages in the nav Bar top right icon as dropdown selection
+const pages = ["JourneyList", "singleStation"];
 const settings = ["Main", "Login", "Logout"];
 
 // app bar responsive navigation from Material UI
@@ -57,7 +58,7 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            Solita Dev Academy 2023
+            Dev Academy 2023
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -88,7 +89,15 @@ function ResponsiveAppBar() {
               sx={{
                 display: { xs: "block", md: "none" },
               }}
-            ></Menu>
+            >
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+                    <Link style={{textDecoration: "none", color : "white"}} to={`/${page}`}>{page}</Link>
+                  </Typography>
+                </MenuItem>
+              ))}
+            </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
@@ -109,7 +118,17 @@ function ResponsiveAppBar() {
           >
             solita logo
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                <Link style={{textDecoration: "none", color : "white"}} to={`/${page}`}>{page}</Link>
+              </Button>
+            ))}
+          </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open Login">

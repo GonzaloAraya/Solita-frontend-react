@@ -8,3 +8,4 @@ packages:
 @emotion/styled
 react-router
 react-router-dom
+@mui/x-data-grid
