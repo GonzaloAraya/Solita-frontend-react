@@ -22,6 +22,7 @@ export async function stationInformationDeparture(place){
 
 export async function stationInformationReturn(place){
     const response = await axios.get( server + '/public/average/return/' + place);
+    console.log(response.data)
     if(!response) {
         throw new Error(response);
     } else {
