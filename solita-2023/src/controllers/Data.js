@@ -37,7 +37,7 @@ export async function authentication(user, password){
     if(!response) {
         throw new Error(response);
     } else {
-        localStorage.setItem('login', JSON.stringify({
+        sessionStorage.setItem('login', JSON.stringify({
             login: true,
             token:response.data.jwtToken
         }))
