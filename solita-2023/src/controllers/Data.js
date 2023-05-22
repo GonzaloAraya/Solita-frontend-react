@@ -22,10 +22,25 @@ export async function stationInformationDeparture(place){
 
 export async function stationInformationReturn(place){
     const response = await axios.get( server + '/public/average/return/' + place);
-    console.log(response.data)
     if(!response) {
         throw new Error(response);
     } else {
+        return response.data;
+    }
+}
+
+export async function authentication(user, password){
+    const response = await axios.post( server + '/public/authenticate', {
+        user: user,
+        password: password
+      });
+    if(!response) {
+        throw new Error(response);
+    } else {
+        sessionStorage.setItem('login', JSON.stringify({
+            login: true,
+            token:response.data.jwtToken
+        }))
         return response.data;
     }
 }
