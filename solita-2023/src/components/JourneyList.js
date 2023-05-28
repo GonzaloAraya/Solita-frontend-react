@@ -4,7 +4,6 @@ import CustomTable from "./common/CustomTable";
 const JourneyList = () => {
     return (
       <div className="App" >
-          JourneyList view
           <div style={{
             display: 'flex',
             alignItems: 'center',
@@ -12,7 +11,6 @@ const JourneyList = () => {
           }}>
             <CustomTable/>
           </div>
-          
       </div>
     );
   }
