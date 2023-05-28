@@ -1,0 +1,28 @@
+.AppBar {
+    background-color: #9C27B0 !important;
+}
+
+.NewEntryButton {
+    background-color: #4CAF50 !important;
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+
+.CancelButton {
+    color: #F44336 !important;
+}
+
+.SubmitButton {
+    color: #4CAF50 !important;
+}
+
+/**
+    palette information
+    https://coolors.co/palette/3385d7-f44336-ff9800-4caf50-9c27b0
+    colors:
+        #3385D7
+        #F44336
+        #FF9800
+        #4CAF50
+        #9C27B0
+**/

@@ -9,15 +9,12 @@ import SingleStation from './components/SingleStation'
 import JourneyList from './components/JourneyList'
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    backgroundColor: '#F8F6F4',
-  }
 }));
 
 function App() {
   const classes = useStyles();
   return (
-    <div className={classes.container}>
+    <div className={classes}>
       <ResponsiveAppBar/>
       <Routes>
         <Route path='/' element={<Main/>} />
