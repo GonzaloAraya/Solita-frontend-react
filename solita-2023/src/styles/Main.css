@@ -1,19 +1,63 @@
 .AppBar {
-    background-color: #9C27B0 !important;
+  background-color: #9c27b0 !important;
 }
 
 .NewEntryButton {
-    background-color: #4CAF50 !important;
-    margin-top: 3rem !important;
-    margin-bottom: 3rem !important;
+  background-color: #4caf50 !important;
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
 }
 
 .CancelButton {
-    color: #F44336 !important;
+  color: #f44336 !important;
 }
 
 .SubmitButton {
-    color: #4CAF50 !important;
+  color: #4caf50 !important;
+}
+
+.main-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  height: 96.1vh;
+}
+
+.background-image {
+  background-image: url("../Bike.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: calc(100vh - 64px);
+  background-position: center;
+}
+
+.content {
+  text-align: center;
+  color: #9c27b0;
+  z-index: 1;
+  width: 80%;
+  background-color: #ffffff81;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.content h1 {
+  font-size: 4rem;
+  margin: 1rem;
+}
+
+.content h2 {
+  font-size: 2.4rem;
+  margin: 4rem;
+}
+
+.content p {
+  font-size: 1.6rem;
 }
 
 /**
