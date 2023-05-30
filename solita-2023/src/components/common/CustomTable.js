@@ -114,9 +114,21 @@ export default function CustomTable() {
   const processRowUpdate = React.useCallback((newRow) => {
     const updatedRow = { ...newRow, isNew: false };
     setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
-    setSnackbar({ children: "User successfully saved", severity: "success" });
-    updateBikeJourneyData(newRow.id, newRow);
-    console.log(newRow);
+    updateBikeJourneyData(newRow.id, newRow)
+      .then((status) => {
+        if (status == 201) {
+          setSnackbar({
+            children: "Journey successfully saved",
+            severity: "success",
+          });
+        }
+      })
+      .catch(() => {
+        setSnackbar({
+          children: "please login to edit data in database",
+          severity: "error",
+        });
+      });
     return updatedRow;
   });
 
@@ -151,9 +163,22 @@ export default function CustomTable() {
       coveredDistance: coveredDistanceState,
       duration: durationState,
     };
-    setRows([...rows, newRow]);
-    console.log(newRow);
-    createJourneyData(newRow);
+    let response = createJourneyData(newRow)
+      .then((status) => {
+        if (status == 201) {
+          setRows([...rows, newRow]);
+          setSnackbar({
+            children: "New Journey successfully saved",
+            severity: "success",
+          });
+        }
+      })
+      .catch(() => {
+        setSnackbar({
+          children: "please login to edit data in database",
+          severity: "error",
+        });
+      });
   };
 
   //clear data in the form
