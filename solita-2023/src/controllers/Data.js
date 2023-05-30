@@ -13,10 +13,9 @@ export async function bikeJourneyData(page, pageSize) {
   }
 }
 
+//null because 1 ram in server is not enough
 export async function stationInformationDeparture(place) {
-  const response = await axios.get(
-    server + "/public/average/departure/" + place
-  );
+  const response = null //await axios.get(server + "/public/average/departure/" + place);
   if (!response) {
     throw new Error(response);
   } else {
@@ -24,8 +23,9 @@ export async function stationInformationDeparture(place) {
   }
 }
 
+//null because 1 ram in server is not enough
 export async function stationInformationReturn(place) {
-  const response = await axios.get(server + "/public/average/return/" + place);
+  const response = null //await axios.get(server + "/public/average/return/" + place);
   if (!response) {
     throw new Error(response);
   } else {
@@ -48,7 +48,7 @@ export async function authentication(user, password) {
         token: response.data.jwtToken,
       })
     );
-    return response.data;
+    return response.status;
   }
 }
 
@@ -62,9 +62,9 @@ export async function updateBikeJourneyData(id, data) {
     const response = await axios.put(server + "/private/" + id, data, {
       headers,
     });
-    console.log(response);
+    console.log(response.status);
     console.log(headers.Authorization);
-    return response.data;
+    return response.status;
   } catch (error) {
     throw new Error(error.response.data);
   }
@@ -80,7 +80,7 @@ export async function createJourneyData(data) {
     const response = await axios.post(server + "/private/", data, { headers });
     console.log(response);
     console.log(headers.Authorization);
-    return response.data;
+    return response.status;
   } catch (error) {
     throw new Error(error.response.data);
   }
