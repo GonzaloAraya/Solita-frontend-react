@@ -11,7 +11,8 @@ To run the project locally, ensure that you have the following installed:
 
 - npm or Yarn: Package managers for JavaScript
 
-- npm install --legacy-peer-deps
+- npm config set legacy-peer-deps true
+
 
 ## Features
 -Bike Data Management: The user interface provides functionality to handle bike data, including creating and updating bike information.
